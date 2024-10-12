@@ -1,0 +1,16 @@
+{
+  "name": "cloud_crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "repository": "https://github.com/gabrieleciuladaite/cloud_crud",
+  "author": "gabrieleciuladaite",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node script.js"
+  },
+  "dependencies": {
+    "express": "^5.0.0"
+  }
+}
