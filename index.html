@@ -100,6 +100,14 @@ function readFormData() {
   formData["yearOfStudy"] = document.getElementById("yearOfStudy").value;
   formData["dateOfBirth"] = document.getElementById("dateOfBirth").value;
   formData["linkedIn"] = document.getElementById("linkedIn").value;
+
+  db.STUDENT_DATA.insertOne({
+    fullName: formData["fullName"],
+    yearOfStudy: formData["yearOfStudy"],
+    dateOfBirth: formData["dateOfBirth"],
+    linkedIn: formData["linkedIn"]
+})
+
   return formData;
 }
 //!insert the data (Post method)
