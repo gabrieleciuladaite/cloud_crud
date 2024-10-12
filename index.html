@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>CRUD-APP</title>
+</head>
+
+<body>
+    <h1>Students</h1>
+    <table>
+      <tr>
+        <td>
+          <form autocomplete="off" onsubmit="onFormSubmit()">
+            <div style="padding: 8px;">
+              <label for="fullName">Full Name</label>
+              <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                placeholder="Enter student's full name"
+                required
+              />
+            </div>
+            <div style="padding: 8px;">
+              <label for="yearOfStudy">Year of Study</label>
+              <input
+                type="number"
+                name="yearOfStudy"
+                id="yearOfStudy"
+                placeholder="Enter student's year in university"
+                required
+              />
+            </div>
+            <div style="padding: 8px;">
+              <label for="dateOfBirth">Date of Birth</label>
+              <input
+                type="date"
+                name="dateOfBirth"
+                id="dateOfBirth"
+                placeholder="Enter student's date of birth"
+                required
+              />
+            </div>
+            <div style="padding: 8px;">
+              <label for="linkedIn">LinkedIn URL</label>
+              <input
+                type="url"
+                name="linkedIn"
+                id="linkedIn"
+                placeholder="Enter student's LinkedIn URL"
+                required
+              />
+            </div>
+            <div class="form_action--button">
+              <input type="submit" value="Submit" />
+              <input type="reset" value="Reset" />
+            </div>
+          </form>
+          <td>
+            <table class="list" id="storeList">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Date of Birth</th>
+                        <th>Year of Study</th>
+                        <th>LinkedIn URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+          </td>
+        </td>
+      </tr>
+    </table>
+</body>
+<script src="/script.js"></script>
+
+</html>
