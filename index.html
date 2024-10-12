@@ -100,8 +100,8 @@ function readFormData() {
   formData["yearOfStudy"] = document.getElementById("yearOfStudy").value;
   formData["dateOfBirth"] = document.getElementById("dateOfBirth").value;
   formData["linkedIn"] = document.getElementById("linkedIn").value;
-
-  db.STUDENT_DATA.insertOne({
+  console.log(db);
+  mongoose.STUDENT_DATA.insertOne({
     fullName: formData["fullName"],
     yearOfStudy: formData["yearOfStudy"],
     dateOfBirth: formData["dateOfBirth"],
