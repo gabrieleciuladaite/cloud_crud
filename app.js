@@ -23,7 +23,7 @@ mongoose.connect(MONGODB_CONNECTION, {
 
 
 app.get('/', function (req, res) {
-  res.sendFile('index.html', { root: __dirname });
+  res.sendFile('index.html', { root: __dirname }, db);
 })
 
 app.listen(PORT)
