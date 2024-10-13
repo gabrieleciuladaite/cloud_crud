@@ -81,20 +81,6 @@
 <!-- <script src="/script.js"></script> -->
  <script>
 //!initial values
-const mongoose = require('mongoose');
-
-const {WEB_APP_NOTES_MONGODB_HOST,WEB_APP_NOTES_MONGODB_DATABASE} = process.env;
-console.log(WEB_APP_NOTES_MONGODB_HOST)
-console.log(WEB_APP_NOTES_MONGODB_DATABASE)
-const MONGODB_CONNECTION = `mongodb://${WEB_APP_NOTES_MONGODB_HOST}/${WEB_APP_NOTES_MONGODB_DATABASE}`;
-    
-mongoose.connect(MONGODB_CONNECTION, {
-    useUnifiedTopology: true,
-    useNewUrlParser:true,
-    useCreateIndex: true
-  })
-  .then(db => console.log('DB Connection: true'))
-  .catch(err => console.log(err))
 var selectedRow = null;
 //!form submit logic
 function onFormSubmit(e) {
@@ -114,11 +100,32 @@ function readFormData() {
   formData["yearOfStudy"] = document.getElementById("yearOfStudy").value;
   formData["dateOfBirth"] = document.getElementById("dateOfBirth").value;
   formData["linkedIn"] = document.getElementById("linkedIn").value;
-  db.STUDENT_DATA.insertOne({
+
+const STUDENT_DATA = new mongoose.Schema({
+    fullName: String,
+    yearOfStudy: Int8Array,
+    dateOfBirth: Date,
+    linkedIn: URL
+});
+
+const StudentModel = mongoose.model('STUDENT_DATA', STUDENT_DATA);
+
+const studentData = new StudentModel({
     fullName: formData["fullName"],
     yearOfStudy: formData["yearOfStudy"],
     dateOfBirth: formData["dateOfBirth"],
     linkedIn: formData["linkedIn"]
+});
+
+testData.save()
+  .then(doc => {
+    console.log('Data saved:', doc);
+  })
+  .catch(error => {
+    console.error('Error saving data:', error);
+  });
+  db.STUDENT_DATA.insertOne({
+
 })
 
   return formData;
