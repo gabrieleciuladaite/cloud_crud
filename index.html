@@ -117,16 +117,13 @@ const studentData = new StudentModel({
     linkedIn: formData["linkedIn"]
 });
 
-testData.save()
+studentData.save()
   .then(doc => {
     console.log('Data saved:', doc);
   })
   .catch(error => {
     console.error('Error saving data:', error);
   });
-  db.STUDENT_DATA.insertOne({
-
-})
 
   return formData;
 }
